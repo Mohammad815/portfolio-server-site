@@ -18,6 +18,22 @@ async function run(){
   try{
       await client.connect();
       console.log('database mia connected  successfuflly')
+
+      //add project
+      const database = client.db('myPortfolio');
+      const projectsCollection = database.collection('projects');
+      
+        //add ProductCollection
+        app.post("/AddProject", async (req, res) => {
+            // console.log(req.body);
+            const result = await projectsCollection.insertOne(req.body);
+            res.send(result);
+         });
+          // get all products
+        app.get("/allProjects", async (req, res) => {
+            const result = await projectsCollection.find({}).toArray();
+            res.send(result);
+       });
   }
   finally{
       // await client.close();
