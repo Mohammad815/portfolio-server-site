@@ -3,12 +3,12 @@ const cors = require("cors")
 
 const app = express()
 app.use(cors())
-const port = 4000
+const port = process.env.PORT || 4000
 
 app.get('/', (req, res) => {
   res.download('Forhad.pdf')
 })
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+  console.log(`listening at ${port}`)
 })
