@@ -17,7 +17,7 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 async function run(){
   try{
       await client.connect();
-      console.log('database mia connected  successfuflly')
+      console.log('database mia korce connected  successfuflly')
 
       //add project
       const database = client.db('myPortfolio');
